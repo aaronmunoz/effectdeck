@@ -1,0 +1,28 @@
+{
+  "name": "@effectdeck/server",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/server/dist",
+        "main": "packages/server/src/index.ts",
+        "tsConfig": "packages/server/tsconfig.lib.json",
+        "assets": []
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "@effectdeck/server:build",
+        "watch": true
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd packages/server && npx mocha --require ts-node/register --recursive 'src/**/*.test.ts'"
+      }
+    }
+  }
+}

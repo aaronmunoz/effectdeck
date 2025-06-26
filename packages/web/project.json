@@ -1,0 +1,44 @@
+{
+  "name": "@effectdeck/web",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/web/dist"
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "@effectdeck/web:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "@effectdeck/web:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "@effectdeck/web:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "@effectdeck/web:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "packages/web/coverage"
+      }
+    }
+  }
+}

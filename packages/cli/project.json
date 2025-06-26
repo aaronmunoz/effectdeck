@@ -1,0 +1,21 @@
+{
+  "name": "@effectdeck/cli",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/cli/dist",
+        "main": "packages/cli/src/index.ts",
+        "tsConfig": "packages/cli/tsconfig.lib.json",
+        "assets": []
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd packages/cli && npx mocha --require ts-node/register --recursive 'src/**/*.test.ts'"
+      }
+    }
+  }
+}

@@ -12,9 +12,9 @@
       }
     },
     "test": {
-      "executor": "@nx/vite:test",
+      "executor": "nx:run-commands",
       "options": {
-        "config": "packages/core/vite.config.ts"
+        "command": "cd packages/core && NODE_OPTIONS='--import tsx/esm' npx mocha 'src/**/*.test.ts'"
       }
     }
   }
