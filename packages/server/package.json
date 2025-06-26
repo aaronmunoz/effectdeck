@@ -1,0 +1,66 @@
+{
+  "name": "@effectdeck/server",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/esbuild:esbuild",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "platform": "node",
+          "outputPath": "packages/server/dist",
+          "format": [
+            "cjs"
+          ],
+          "bundle": false,
+          "main": "packages/server/src/main.ts",
+          "tsConfig": "packages/server/tsconfig.app.json",
+          "assets": [
+            "packages/server/src/assets"
+          ],
+          "esbuildOptions": {
+            "sourcemap": true,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "configurations": {
+          "development": {},
+          "production": {
+            "esbuildOptions": {
+              "sourcemap": false,
+              "outExtension": {
+                ".js": ".js"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@effectdeck/server:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@effectdeck/server:build:development"
+          },
+          "production": {
+            "buildTarget": "@effectdeck/server:build:production"
+          }
+        }
+      }
+    }
+  }
+}
