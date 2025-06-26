@@ -1,5 +1,5 @@
 import { produce } from 'immer';
-import { Effect, GameContext, EffectResult } from '../Effect.js';
+import { Effect, GameContext, EffectResult } from '../Effect';
 
 export class HealEffect extends Effect {
   readonly type = 'heal';

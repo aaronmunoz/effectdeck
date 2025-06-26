@@ -1,5 +1,5 @@
 import { produce } from 'immer';
-import { Effect, GameContext, EffectResult } from '../Effect.js';
+import { Effect, GameContext, EffectResult } from '../Effect';
 
 export class DrawCardEffect extends Effect {
   readonly type = 'draw';

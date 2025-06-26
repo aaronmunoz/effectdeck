@@ -1,2 +1,2 @@
 export * from './lib/core.js';
-export * from './effects/index.js';
+export * from './effects';

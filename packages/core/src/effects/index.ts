@@ -13,7 +13,7 @@ export {
   type Card,
   type GamePhase,
   type EffectResult
-} from './Effect.js';
+} from './Effect';
 
 export { 
   Context, 
@@ -28,6 +28,6 @@ export {
   type RandomGenerator,
   type GameStorage,
   type EventBus
-} from './Context.js';
+} from './Context';
 
-export * from './primitives/index.js';
+export * from './primitives';

@@ -1,4 +1,4 @@
-export { DamageEffect } from './DamageEffect.js';
-export { HealEffect } from './HealEffect.js';
-export { DrawCardEffect } from './DrawCardEffect.js';
-export { ResourceEffect } from './ResourceEffect.js';
+export { DamageEffect } from './DamageEffect';
+export { HealEffect } from './HealEffect';
+export { DrawCardEffect } from './DrawCardEffect';
+export { ResourceEffect } from './ResourceEffect';
